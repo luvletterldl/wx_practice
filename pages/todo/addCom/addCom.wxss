@@ -1,0 +1,13 @@
+/* pages/todo/addCom/addCom.wxss */
+.addCom {
+  text-align: center;
+  margin-top: 25px
+}
+.btn {
+  margin-left: 10rpx
+}
+.label {
+  display: block;
+  text-align: left;
+  margin-left: 10%
+}

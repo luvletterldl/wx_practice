@@ -1,0 +1,15 @@
+<view class='addCom'>
+  <label>Add Todo</label>
+  <button class='btn' size='mini' type='primary' bind:tap="addEvent">add</button>
+  <input 
+    placeholder="{{str.placeHolder}}"
+    type="text"
+    value='{{inputValue}}'
+    bindinput='inputEvent'
+  />
+  <checkbox-group>
+    <label class='label' wx:for="{{items}}">
+      <checkbox value="{{item.value}}" />{{item.value}}
+    </label>
+  </checkbox-group>
+</view>

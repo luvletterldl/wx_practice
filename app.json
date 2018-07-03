@@ -1,0 +1,32 @@
+{
+  "pages": [
+    "pages/todo/addCom/addCom",
+    "pages/index/index",
+    "pages/todo/finished/finished"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#666",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true,
+    "onReachBottomDistance": "3px"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/todo/addCom/addCom",
+        "text": "TODO"
+      },
+      {
+        "pagePath": "pages/todo/finished/finished",
+        "text": "finished"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}
