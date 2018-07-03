@@ -7,6 +7,8 @@ Page({
    */
   data: {
     str:{
+      todoTitle:"Todo",
+      finishedTitle:"Finished",
       placeHolder:"接下来要做什么",
       inputValue:''
     },
@@ -22,7 +24,6 @@ Page({
     this.setData({
       inputValue: e.detail.value
     })
-    console.log(this.data.inputValue)
   },
   addEvent: function () {
     console.log('input:' + this.data.inputValue, this.data.items)
