@@ -1,10 +1,17 @@
 <!--pages/todo/finished/finished.wxml-->
 <view class='addCom'>
   <label>{{str.Title}}</label>
-  <!-- <button class='btn' size='mini' type='primary' bind:tap="addEvent">add</button> -->
+   <button class='btn' size='mini' type='primary' bind:tap="emptyEvent">empty</button> 
+   <input 
+    placeholder="{{str.placeHolder}}"
+    type="text"
+    value='{{inputValue}}'
+    bindinput='inputEvent'
+    disabled='true'
+  />
   <checkbox-group>
-    <label class='label' wx:for="{{items}}">
-      <checkbox value="{{item.value}}" />{{item.value}}
+    <label class='label' wx:for="{{items}}" wx:if="{{item.checked}}">
+      <checkbox value="{{item.value}}" animation="{{animationData}}" checked='{{item.checked}}' />{{item.value}}
     </label>
   </checkbox-group>
 </view>

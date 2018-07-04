@@ -9,7 +9,7 @@
   />
   <checkbox-group bind:change="groupChange">
     <label class='label' wx:for="{{items}}" wx:if="{{!item.checked}}">
-      <checkbox value="{{item.value}}" checked='{{item.checked}}' />{{item.value}}
+      <checkbox value="{{item.value}}" animation="{{animationData}}" checked='{{item.checked}}' />{{item.value}}
     </label>
   </checkbox-group>
 </view>

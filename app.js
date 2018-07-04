@@ -35,8 +35,6 @@ App({
   },
   globalData: {
     userInfo: "ldl",
-    initData:{
-      index: 0
-    }
+    items:[]
   }
 })

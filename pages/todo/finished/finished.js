@@ -1,6 +1,4 @@
 // pages/todo/finished/finished.js
-const appInstance = getApp()
-let index = appInstance.globalData.initData.index
 Page({
   /**
    * 页面的初始数据
@@ -8,7 +6,8 @@ Page({
   data: {
     str: {
       Title: "Finished List",
-      inputValue: ''
+      inputValue: '',
+      placeHolder: '已经完成的TODO'
     },
     items: []
   },
@@ -16,38 +15,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('addCpm loaded', "index: " + index, "当前位置: " + wx.getLocation({
-      altitude: true,
-      success: function (res) {
-        console.log(JSON.stringify(res))
-      },
-    }))
-    console.log('SystemInfo: ', wx.getSystemInfo({
-      success: function (res) {
-        console.log(JSON.stringify(res))
-      },
-    }))
-    // wx.scanCode({
-    //   success: (e) => {
-    //     console.log(e)
-    //   }
-    // })
   },
-  inputEvent: function (e) {
-    this.setData({
-      inputValue: e.detail.value
-    })
-  },
-  addEvent: function () {
-    console.log('input:' + this.data.inputValue, this.data.items)
-    var itemsTem = this.data.items
-    itemsTem.push({ "index": index++, "value": this.data.inputValue })
-    this.setData({
-      items: itemsTem,
-      inputValue: ''
-    })
-  },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -59,7 +27,18 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var items = wx.getStorageSync('items')
+    this.setData({
+      items: items
+    })
+    console.log('finished page onLoad', this.data.items)
+  },
+  emptyEvent: function () {
+    wx.clearStorageSync()
+    wx.removeStorageSync('items')
+    console.log(this.data.items)
+    this.onHide()
+    this.onShow()
   },
 
   /**
