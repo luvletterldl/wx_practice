@@ -1,0 +1,8 @@
+<!--pages/todo/components/list-com/list-com.wxml-->
+<view>
+  <checkbox-group bind:change="groupChange">
+    <label class='label' wx:for="{{items}}" bind:tap='checkedItem'>
+      <checkbox value="{{item.value}}" checked='{{item.checked}}' />{{item.value}}
+    </label>
+  </checkbox-group>
+</view>

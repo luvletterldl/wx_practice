@@ -1,0 +1,6 @@
+/* pages/todo/components/list-com/list-com.wxss */
+.label {
+  display: block;
+  text-align: left;
+  margin-left: 10%
+}

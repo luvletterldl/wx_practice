@@ -1,13 +1,12 @@
 // pages/todo/addCom/addCom.js
-const appInstance = getApp()
-let index = appInstance.globalData.initData.index
+let index = 0
 Page({
   /**
    * 页面的初始数据
    */
   data: {
     str:{
-      todoTitle:"Todo",
+      Title:"Todo List",
       finishedTitle:"Finished",
       placeHolder:"接下来要做什么",
       inputValue:''
@@ -18,17 +17,45 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('addCpm loaded', "index: " + index)
+    console.log('addCpm loaded', "index: " + index,"当前位置: "+wx.getLocation({
+      altitude: true,
+      success: function(res) {
+        console.log(JSON.stringify(res))
+      },
+    }))
+    console.log('SystemInfo: ',wx.getSystemInfo({
+      success: function(res) {
+        console.log(JSON.stringify(res))
+      },
+    }))
+    // wx.scanCode({
+    //   success: (e) => {
+    //     console.log(e)
+    //   }
+    // })
   },
   inputEvent: function (e){
     this.setData({
       inputValue: e.detail.value
     })
   },
+  // checkbox-group 的change事件
+  groupChange: function (e) {
+    let itemsl = this.data.items
+    for(let i = 0; i < itemsl.length; i++){
+      if (itemsl[i].value == e.detail.value) {
+        itemsl[i].checked = true
+        this.setData({
+         items : this.data.items
+        })
+      }
+    }
+    console.log(this.data.items)
+  },
   addEvent: function () {
     console.log('input:' + this.data.inputValue, this.data.items)
     var itemsTem = this.data.items
-    itemsTem.push({ "index": index++,"value": this.data.inputValue})
+    itemsTem.push({ "index": index++,"value": this.data.inputValue, "checked": false})
     this.setData({
       items: itemsTem,
       inputValue: ''

@@ -1,3 +1,10 @@
 <!--pages/todo/finished/finished.wxml-->
-<text>pages/todo/finished/finished.wxml</text>
-<view>123</view>
+<view class='addCom'>
+  <label>{{str.Title}}</label>
+  <!-- <button class='btn' size='mini' type='primary' bind:tap="addEvent">add</button> -->
+  <checkbox-group>
+    <label class='label' wx:for="{{items}}">
+      <checkbox value="{{item.value}}" />{{item.value}}
+    </label>
+  </checkbox-group>
+</view>
